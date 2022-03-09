@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Форма для публикации</title>
+</head>
+
+<body>
+    <style>
+        /* блок название статьи на широком экране */
+        div.nam {margin-top: 20px;}
+        div.nam label {float: left;}
+        div.nam1 {
+            margin-left: 10.9em;
+            margin-right: 8px;
+            margin-bottom: 5px}
+        div.nam1 input {width: 100%;}
+
+        /* блок рубрика с выпадающим списком на широком экране */
+        div.rubr label {float: left;}
+        div.rubr1 {margin-left: 10.8em}
+        select {width: 100%}
+
+        /* блок публикация с радио-кнопками на широком экране */
+        div.publ label {float: left;}
+        div.publ1 {margin-left: 10.5em;}
+        div.publ1 p {display: inline;}
+
+        /* блок текс с полем для ввода текста на широком экране */
+        textarea {
+            height: 30px;
+            width: 100%;
+            resize: none;}
+        div.txt {margin-right: 6px;}
+
+
+        @media all and (max-width: 600px) {
+
+            /* блок название статьи на узком экране */
+            div.nam1 {
+                margin-left: 0em;
+                margin-right: 8px;}
+            div.nam1 input {width: 100%;}
+
+            /* блок рубрика с выпадающим списком на узком экране */
+            div.rubr1 {
+                width: 100%;
+                margin-left: 0em;}
+
+            /* блок публикация с радио-кнопками на узком экране */
+            div.publ1 {
+                margin-left: 0em;
+                display: block;}
+            div.publ1 p {
+                display: block;
+                margin-top: 2px;
+                margin-bottom: 2px;}
+            div.publ label {
+                width: 100%;}
+        }
+    </style>
+
+    <form method="post" action="http://fe.it-academy.by/TestForm.php" target="_blank">
+
+        Для публикации вашей статьи заполните, пожалуйста, следующую форму:
+        <!--  блок название статьи -->
+        <div class="nam">
+            <label for="name">Название статьи:</label>
+            <div class="nam1"><input type="text" name="nam" id="name" required></div>
+        </div>
+        <!--  блок рубрики -->
+        <div class="rubr">
+            <label for="rubrica">Рубрика:</label>
+            <div class="rubr1">
+                <select name="vid" id="rubrica">
+                    <option value="1">программирование</option>
+                    <option value="2">математика</option>
+                    <option value="3">литература</option>
+                    <option value="4">история</option>
+                </select>
+            </div>
+        </div>
+        <!--  блок выбора публикации -->
+        <div class="publ">
+            <label for="place">Публикация: </label>
+            <div class="publ1">
+                <p> <input type="radio" name="place" value="1" id="place">на сайте</p>
+                <p> <input type="radio" name="place" value="2" id="place">в журнале</p>
+                <p><input type="radio" name="place" value="3" id="place">на сайте и в журнале</p>
+            </div>
+        </div>
+        <!--  блок разрешить комментарии -->
+        <div>
+           <label>Разрешить комментарии:<input type="checkbox" name="agree" checked></label>
+        </div>
+         <!--  блок областью для ввода текста -->
+        <label for="tekst">Текст статьи:</label>
+        <div class="txt">
+            <textarea name="tekst" id="tekst"></textarea>
+        </div>
+        <!--  кнопка публикации -->
+        <button type="submit">Опубликовать</button>
+    </form>
+
+</body>
+
+</html>
